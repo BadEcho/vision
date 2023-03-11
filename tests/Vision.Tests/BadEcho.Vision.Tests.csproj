@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Common\BadEcho.Common.csproj" />
+    <ProjectReference Include="..\..\src\Core\src\Common\BadEcho.Common.csproj" />
     <ProjectReference Include="..\..\src\Vision.Extensibility\BadEcho.Vision.Extensibility.csproj" />
     <ProjectReference Include="..\..\src\Vision\BadEcho.Vision.csproj" />
   </ItemGroup>

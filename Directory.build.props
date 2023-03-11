@@ -1,3 +1,9 @@
 <Project>
 	<Import Project="src\Core\Directory.build.props"/>
+	<!--This is needed in order to prevent inaccurate errors from being displayed during design-time.-->
+	<Target Name="DisableDesignTimeCompileCheck" AfterTargets="_CheckCompileDesignTimePrerequisite">
+		<PropertyGroup>
+			<BuildingProject>false</BuildingProject>
+		</PropertyGroup>
+	</Target>
 </Project>

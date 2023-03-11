@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Presentation\BadEcho.Presentation.csproj" />
+    <ProjectReference Include="..\Core\src\Presentation\BadEcho.Presentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>
