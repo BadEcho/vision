@@ -1,6 +1,6 @@
 <Project>
 	<PropertyGroup>
-		<UniversalProperties>..\Universal.build.props</UniversalProperties>
+		<UniversalProperties>$([MSBuild]::GetPathOfFileAbove('Universal.build.props', '$(MSBuildThisFileDirectory)..\'))</UniversalProperties>
 		<CoreProperties Condition="Exists($(UniversalProperties))">$(UniversalProperties)</CoreProperties>
 		<CoreProperties Condition="'$(CoreProperties)' == ''">src\Core\Directory.build.props</CoreProperties>
 	</PropertyGroup>
