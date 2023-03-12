@@ -1,5 +1,13 @@
 <Project>
-	<Import Project="src\Core\Directory.build.props"/>
+	<PropertyGroup>
+		<UniversalProperties>..\Universal.build.props</UniversalProperties>
+		<CoreProperties Condition="Exists($(UniversalProperties))">$(UniversalProperties)</CoreProperties>
+		<CoreProperties Condition="'$(CoreProperties)' == ''">src\Core\Directory.build.props</CoreProperties>
+	</PropertyGroup>
+	<Import Project="$(CoreProperties)"/>
+	<PropertyGroup>
+		<CorePath Condition="'$(CorePath)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\src\Core\src'))</CorePath>
+	</PropertyGroup>
 	<!--This is needed in order to prevent inaccurate errors from being displayed during design-time.-->
 	<Target Name="DisableDesignTimeCompileCheck" AfterTargets="_CheckCompileDesignTimePrerequisite">
 		<PropertyGroup>

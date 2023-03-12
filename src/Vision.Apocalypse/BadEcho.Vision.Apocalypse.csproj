@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\src\Presentation\BadEcho.Presentation.csproj" />
-    <ProjectReference Include="..\Core\src\Common\BadEcho.Common.csproj" />
+    <ProjectReference Include="$(CorePath)\Presentation\BadEcho.Presentation.csproj" />
+    <ProjectReference Include="$(CorePath)\Common\BadEcho.Common.csproj" />
     <ProjectReference Include="..\Vision.Extensibility\BadEcho.Vision.Extensibility.csproj" />
   </ItemGroup>
 
