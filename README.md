@@ -12,6 +12,7 @@ This repo contains the code for Vision, a Bad Echo application. Vision is an Omn
 ## Comprehensive Overview
 
 For a detailed look at what Vision is and how it works, please refer to its dedicated article:
+
 [Vision: An Omnified Game Overlay](https://badecho.com/index.php/2022/02/14/vision/)
 
 This article provides some high-level design as well as diving deep into all of the various parts that make it work.
