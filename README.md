@@ -4,7 +4,7 @@
 This repo contains the code for Vision, a Bad Echo application. Vision is an Omnified platform for displaying, on an overlay, modules that grant sight into the inner workings of a game.
 
 <p align="center">
-	<img src="https://badecho.com/wp-content/uploads/2022/02/VisionStatistics.png" width="357" height="600"/>
+	<img src="https://badecho.com/wp-content/uploads/2022/02/VisionStatistics.png"/>
 	<br/>
 	<em>Vision's Statistics module in action.</em>
 </p>
