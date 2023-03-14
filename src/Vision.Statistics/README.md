@@ -1,9 +1,9 @@
-# Vision
+﻿# Vision: Statistics Module
 [![Discord](https://img.shields.io/discord/348353194801364992?style=flat-square&label=Discord&logo=discord&logoColor=white&color=7289DA)](https://discord.gg/omni) 
 
-The `BadEcho.Vision` executable is the main application of Vision. It provides the overlay technology and hosts all available modules plugins, each of which is responsible for displaying a different type of Omnified game data.
+The `BadEcho.Vision.Statistics` library is a module plugin for Vision that displays raw, generalized game statistics exported from an Omnified game.
 
-This Bad Echo application exists to deliver a live Omnified experience on stream, but is licensed under the GNU Affero General Public License so that others may enjoy it as well; see the accompanying [license](https://github.com/BadEcho/vision/blob/master/LICENSE.md) for details.
+This module exists to be used with Vision for the purpose of delivering a live Omnified experience on stream, but is licensed under the GNU Affero General Public License so that others may enjoy it as well; see the accompanying [license](https://github.com/BadEcho/vision/blob/master/LICENSE.md) for details.
 
 ## Comprehensive Overview
 

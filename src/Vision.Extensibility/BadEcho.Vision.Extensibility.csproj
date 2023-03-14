@@ -1,9 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
+		<Product>Vision Extensibility Framework</Product>
+		<Description>Framework for creating Vision module plugins.</Description>
+		<Title>$(Product)</Title>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	  <TargetFramework>net7.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-	  <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,12 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Themes\Resources\Coloring.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-    </Page>
-    <Page Update="Themes\Root.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-    </Page>
+    <None Include="README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>

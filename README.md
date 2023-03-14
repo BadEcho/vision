@@ -15,7 +15,7 @@ For a detailed look at what Vision is and how it works, please refer to its dedi
 
 [Vision: An Omnified Game Overlay](https://badecho.com/index.php/2022/02/14/vision/)
 
-This article provides some high-level design as well as diving deep into all of the various parts that make it work.
+This article provides some high-level design as well as a deep dive into all of its various components.
 
 ## About Bad Echo
 Bad Echo is a collection of software technologies and [various writings](https://badecho.com) by Matt Weber: a software designer, partnered [Twitch](https://twitch.tv/omni) streamer, and game developer.
