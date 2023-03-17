@@ -1,3 +1,6 @@
 [submodule "src/Core"]
 	path = src/Core
 	url = https://github.com/BadEcho/core
+[submodule "build"]
+	path = build
+	url = https://github.com/BadEcho/build.git
