@@ -1,0 +1,42 @@
+# On a push to source control, this compiles a release build for the repository's code, runs tests, and then publishes new development builds to MyGet.
+
+name: CI on Push
+ 
+on:
+  push:
+    branches:  
+      - master
+    paths-ignore:
+      - '.github/workflows/**'
+      - '!.github/workflows/push.yml'
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:  
+    runs-on: windows-2022
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+        fetch-depth: 0
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x      
+    - name: Build
+      shell: pwsh      
+      run: .\build\build.ps1 $(git rev-parse --short HEAD) $(git rev-list --count "$(git log -1 --pretty=format:"%H" version.json)..HEAD")
+    - name: Push to MyGet
+      env:
+        PKG_URL: https://www.myget.org/F/bad-echo/api/v3/index.json
+        PKG_API_KEY: ${{ secrets.MYGET_API_KEY }}
+      run: .\build\push.ps1
+      shell: pwsh
+    - name: Artifacts
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: artifacts/**/*
