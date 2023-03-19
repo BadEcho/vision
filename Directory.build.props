@@ -6,6 +6,7 @@
 	</PropertyGroup>
 	<Import Project="$(CoreProperties)"/>
 	<PropertyGroup>
+		<RepositoryUrl>https://github.com/BadEcho/vision</RepositoryUrl>
 		<CorePath Condition="'$(CorePath)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\src\Core\src'))</CorePath>
 	</PropertyGroup>
 	<!--This is needed in order to prevent inaccurate errors from being displayed during design-time.-->
