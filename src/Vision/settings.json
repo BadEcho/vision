@@ -5,7 +5,7 @@
   "forceSoftwareRendering": true, 
   "leftAnchorMargin": "0,125,0,0",
   "titleLocation": "TopLeft",
-  "messageFilesDirectory": "..\\..\\hacks\\targets\\eldenRing",
+  "messageFilesDirectory": "C:\\src\\BadEcho\\omnified-hacks\\targets\\eldenRing",
   "modules": {
     "BadEcho.Vision.Statistics": {
       "location": "TopLeft"
