@@ -81,7 +81,7 @@
                 group size of statistic grids.
             -->
             <StackPanel Orientation="Horizontal"
-                        Margin="0,0,15,0"
+                        Margin="0,0,20,0"
                         Grid.Column="1"
                         Grid.Row="1">
                 <badEcho:OutlinedTextElement Style="{StaticResource StatisticTextStyle}"
