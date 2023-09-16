@@ -24,7 +24,7 @@ internal sealed class StatisticsViewModel : PolymorphicCollectionViewModel<IStat
     /// Initializes a new instance of the <see cref="StatisticsViewModel"/> class.
     /// </summary>
     public StatisticsViewModel()
-        : base(new CollectionViewModelOptions {AsyncBatchBindings = false})
+        : base(new CollectionViewModelOptions {AsyncBatchBindings = false, RemoveChildrenMissingFromBatch = true})
     {
         RegisterDerivation<WholeStatistic, WholeStatisticViewModel>();
         RegisterDerivation<FractionalStatistic, FractionalStatisticViewModel>();

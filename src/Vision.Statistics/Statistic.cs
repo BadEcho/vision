@@ -31,8 +31,7 @@ public abstract class Statistic : IStatistic
     /// <inheritdoc/>
     /// <remarks>
     /// We override the equality methods to establish the name of the statistic to essentially be its identity,
-    /// and to allow for in-place rebindings of the view models responsible for displaying statistics with updated
-    /// statistical data.
+    /// and to allow for in-place rebindings of the statistic view models with updated statistical data.
     /// </remarks>
     public override bool Equals(object? obj) 
         => obj is Statistic other && Name == other.Name;
