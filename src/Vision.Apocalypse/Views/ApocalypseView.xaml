@@ -55,6 +55,7 @@
         <!--Many Apocalypse event view models require view associations that are sensitive to the places both it and any immediately 
             implemented interface occupy within the object hierarchy; this warrants the use of a specialized template selector.-->
         <badEcho:ViewContextTemplateSelector x:Key="ContextSelector"/>
+        <BooleanToVisibilityConverter x:Key="BooleanVisibilityConverter"/>
         <Style TargetType="ContentControl">
             <Setter Property="Template">
                 <Setter.Value>
@@ -160,7 +161,7 @@
             </Setter>
         </Style>
     </badEcho:View.Resources>
-    <Grid>
+    <Grid Visibility="{Binding IsVisible, Converter={StaticResource BooleanVisibilityConverter}}">
         <ItemsControl ItemsSource="{Binding Children}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>

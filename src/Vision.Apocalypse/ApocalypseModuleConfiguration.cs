@@ -25,4 +25,10 @@ public sealed class ApocalypseModuleConfiguration : VisionModuleConfiguration
     /// </summary>
     public double EffectMessageMaxWidth
     { get; init; } = double.NaN;
+
+    /// <summary>
+    /// Gets the number of minutes of inactivity until this module becomes hidden if no new events are received.
+    /// </summary>
+    public int TimeoutMinutes
+    { get; init; }
 }
