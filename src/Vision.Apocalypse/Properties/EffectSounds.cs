@@ -127,12 +127,6 @@ public static class EffectSounds
         => GetStream(nameof(OrgasmWow));
 
     private static Stream GetStream(string name)
-    {
-        UnmanagedMemoryStream? stream = _Manager.GetStream(name, CultureInfo.InvariantCulture);
-
-        if (stream == null)
-            throw new BadImageFormatException(Strings.SoundMissingResource.InvariantFormat(name));
-
-        return stream;
-    }
+        => _Manager.GetStream(name, CultureInfo.InvariantCulture)
+           ?? throw new BadImageFormatException(Strings.SoundMissingResource.InvariantFormat(name));
 }
