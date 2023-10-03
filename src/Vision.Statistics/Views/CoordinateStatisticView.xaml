@@ -26,7 +26,11 @@
                                          Format="{}{0:0.000}"
                                          />
     </d:DesignProperties.DataContext>
-    <Grid Style="{StaticResource StatisticCompactableGridStyle}">
+    <badEcho:View.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanVisibilityConverter"/>
+    </badEcho:View.Resources>
+    <Grid Style="{StaticResource StatisticCompactableGridStyle}"
+          Visibility="{Binding IsVisible, Converter={StaticResource BooleanVisibilityConverter}}">
         <badEcho:OutlinedTextElement Style="{StaticResource StatisticNameTextStyle}"
                                      Text="{Binding Name}"
                                      Grid.Column="0"

@@ -30,4 +30,9 @@ internal interface IStatisticViewModel : IViewModel, IModelProvider<IStatistic>
     /// Gets or sets any formatting that should be applied to the value of the bound statistic.
     /// </summary>
     string Format { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating if the bound statistic is visible.
+    /// </summary>
+    bool IsVisible { get; set; }
 }

@@ -27,4 +27,10 @@ public interface IStatistic
     /// Gets any formatting that should be applied to the value of the statistic.
     /// </summary>
     string Format { get; }
+
+    /// <summary>
+    /// Gets a value indicating if the statistic should be hidden from view, while maintaining its place among
+    /// its brethren.
+    /// </summary>
+    bool IsHidden { get; }
 }

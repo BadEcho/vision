@@ -29,6 +29,10 @@ public sealed class StatisticGroup : IStatistic
     public string Format
     { get; init; } = string.Empty;
 
+    /// <inheritdoc/>
+    public bool IsHidden
+    { get; init; }
+
     /// <summary>
     /// Gets a sequence of individual statistics that compose this group.
     /// </summary>

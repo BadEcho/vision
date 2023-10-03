@@ -29,6 +29,10 @@ public abstract class Statistic : IStatistic
     { get; init; } = "{0:N0}";
 
     /// <inheritdoc/>
+    public bool IsHidden
+    { get; init; }
+
+    /// <inheritdoc/>
     /// <remarks>
     /// We override the equality methods to establish the name of the statistic to essentially be its identity,
     /// and to allow for in-place rebindings of the statistic view models with updated statistical data.

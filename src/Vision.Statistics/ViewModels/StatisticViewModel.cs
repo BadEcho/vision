@@ -24,6 +24,7 @@ internal abstract class StatisticViewModel<TStatistic> : ViewModel<IStatistic,TS
 {
     private string _name = string.Empty;
     private string _format = string.Empty;
+    private bool _isVisible;
 
     /// <inheritdoc/>
     public string Name
@@ -38,7 +39,14 @@ internal abstract class StatisticViewModel<TStatistic> : ViewModel<IStatistic,TS
         get => _format;
         set => NotifyIfChanged(ref _format, value);
     }
-        
+
+    /// <inheritdoc/>
+    public bool IsVisible
+    {
+        get => _isVisible;
+        set => NotifyIfChanged(ref _isVisible, value);
+    }
+
     /// <inheritdoc/>
     protected override void OnBinding(TStatistic model)
     {
@@ -46,6 +54,7 @@ internal abstract class StatisticViewModel<TStatistic> : ViewModel<IStatistic,TS
             
         Name = model.Name;
         Format = model.Format;
+        IsVisible = !model.IsHidden;
     }
 
     /// <inheritdoc/>
@@ -53,5 +62,6 @@ internal abstract class StatisticViewModel<TStatistic> : ViewModel<IStatistic,TS
     {
         Name = string.Empty;
         Format = string.Empty;
+        IsVisible = false;
     }
 }
