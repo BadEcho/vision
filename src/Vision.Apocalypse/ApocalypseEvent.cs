@@ -48,8 +48,8 @@ public abstract class ApocalypseEvent
     /// <remarks>
     /// <para>
     /// The reason why we sort Apocalypse events by an independently managed index, as opposed to the events' timestamps, is because
-    /// it was discovered that Lua, which the technology used to conduct high-level operations within injected Omnified code (including the
-    /// creation of Apocalypse message files), lacks built-in support for capturing the current time with millisecond resolution.
+    /// it was discovered that Lua, which is the technology used to conduct high-level operations within injected Omnified code (including
+    /// the creation of Apocalypse message files), lacks built-in support for capturing the current time with millisecond resolution.
     /// </para>
     /// <para>
     /// Given that it is often the case that multiple Apocalypse events can occur within the same second, relying on a timestamp that
