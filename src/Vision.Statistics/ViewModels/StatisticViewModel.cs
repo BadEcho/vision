@@ -11,6 +11,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using BadEcho.Presentation.Messaging;
 using BadEcho.Presentation.ViewModels;
 
 namespace BadEcho.Vision.Statistics.ViewModels;
@@ -25,6 +26,7 @@ internal abstract class StatisticViewModel<TStatistic> : ViewModel<IStatistic,TS
     private string _name = string.Empty;
     private string _format = string.Empty;
     private bool _isVisible;
+    private Mediator? _mediator;
 
     /// <inheritdoc/>
     public string Name
@@ -45,6 +47,13 @@ internal abstract class StatisticViewModel<TStatistic> : ViewModel<IStatistic,TS
     {
         get => _isVisible;
         set => NotifyIfChanged(ref _isVisible, value);
+    }
+
+    /// <inheritdoc/>
+    public Mediator? Mediator
+    {
+        get => _mediator;
+        set => NotifyIfChanged(ref _mediator, value);
     }
 
     /// <inheritdoc/>

@@ -68,6 +68,12 @@
                                                              />
                                 <Storyboard x:Key="RevealBounce">
                                     <DoubleAnimation Storyboard.TargetProperty="(Border.Background).(GradientBrush.Opacity)" 
+                                                     BeginTime="00:00:00"
+                                                     From="0"
+                                                     To="1"
+                                                     Duration="0"
+                                                     />
+                                    <DoubleAnimation Storyboard.TargetProperty="(Border.Background).(GradientBrush.Opacity)" 
                                                      BeginTime="00:00:05"
                                                      From="1"
                                                      To="0"
@@ -91,18 +97,16 @@
                                 <TranslateTransform/>
                             </Border.RenderTransform>
                             <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" Opacity="0">
                                     <GradientStop Color="#FFA4A2A3"/>
                                     <GradientStop Color="#FFD2D2D2" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
-                            <Border.Triggers>
-                                <EventTrigger RoutedEvent="Loaded">
-                                    <!--The BeginStoryboard action must have a name, as giving it name will result in the runtime making the
-                                        resulting storyboard controllable, a capability this view requires.-->
-                                    <BeginStoryboard x:Name="RevealBounceAction" Storyboard="{StaticResource RevealBounce}"/>
-                                </EventTrigger>
-                            </Border.Triggers>
+                            <badEcho:LoadedEventBehavior.Actions>
+                                <badEcho:BeginStoryboardAction Storyboard="{StaticResource RevealBounce}" 
+                                                               Mediator="{Binding DataContext.Mediator, RelativeSource={RelativeSource AncestorType={x:Type badEcho:View}}}"
+                                                               />
+                            </badEcho:LoadedEventBehavior.Actions>
                             <badEcho:CancelableAnimationBehavior.State>
                                 <badEcho:CancelableAnimationState Storyboard="{StaticResource RevealBounce}"
                                                                   Mediator="{Binding    DataContext.Mediator, 
@@ -140,13 +144,11 @@
                                         <GradientStop Color="#00FFFFFF" Offset="0.2"/>
                                     </LinearGradientBrush>
                                 </Border.Background>
-                                <Border.Triggers>
-                                    <EventTrigger RoutedEvent="Loaded">
-                                        <!--The BeginStoryboard action must have a name, as giving it name will result in the runtime making the
-                                            resulting storyboard controllable, a capability this view requires.-->
-                                        <BeginStoryboard x:Name="RevealShimmerAction" Storyboard="{StaticResource RevealShimmer}"/>
-                                    </EventTrigger>
-                                </Border.Triggers>
+                                <badEcho:LoadedEventBehavior.Actions>
+                                    <badEcho:BeginStoryboardAction Storyboard="{StaticResource RevealShimmer}" 
+                                                                   Mediator="{Binding DataContext.Mediator, RelativeSource={RelativeSource AncestorType={x:Type badEcho:View}}}" 
+                                                                   />
+                                </badEcho:LoadedEventBehavior.Actions>
                                 <badEcho:CancelableAnimationBehavior.State>
                                     <badEcho:CancelableAnimationState Storyboard="{StaticResource RevealShimmer}"
                                                                       Mediator="{Binding    DataContext.Mediator, 

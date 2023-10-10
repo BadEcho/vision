@@ -59,7 +59,7 @@ internal sealed class ApocalypseModule : VisionModule<ApocalypseEvent, Apocalyps
         var moduleConfiguration
             = Configuration.Modules.GetConfiguration<ApocalypseModuleConfiguration>(ModuleName);
 
-        var viewModel = new ApocalypseViewModel(moduleConfiguration);
+        var viewModel = new ApocalypseViewModel(moduleConfiguration, Configuration.Mediator);
 
         if (Configuration.Dispatcher != null)
             viewModel.ChangeDispatcher(Configuration.Dispatcher);

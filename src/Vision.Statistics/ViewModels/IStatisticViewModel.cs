@@ -12,6 +12,7 @@
 //-----------------------------------------------------------------------
 
 using BadEcho.Presentation;
+using BadEcho.Presentation.Messaging;
 using BadEcho.Presentation.ViewModels;
 
 namespace BadEcho.Vision.Statistics.ViewModels;
@@ -35,4 +36,9 @@ internal interface IStatisticViewModel : IViewModel, IModelProvider<IStatistic>
     /// Gets or sets a value indicating if the bound statistic is visible.
     /// </summary>
     bool IsVisible { get; set; }
+
+    /// <summary>
+    /// Gets or sets the mediator for messages to be sent or received through.
+    /// </summary>
+    Mediator? Mediator { get; set; }
 }

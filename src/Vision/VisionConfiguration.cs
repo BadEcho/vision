@@ -15,6 +15,7 @@ using System.Windows;
 using System.Windows.Threading;
 using BadEcho.Presentation.Serialization;
 using BadEcho.Configuration;
+using BadEcho.Presentation.Messaging;
 using BadEcho.Vision.Extensibility;
 
 namespace BadEcho.Vision;
@@ -51,4 +52,8 @@ internal sealed class VisionConfiguration : IVisionConfiguration
 
     /// <inheritdoc/>
     public Dispatcher? Dispatcher { get; set; }
+
+    /// <inheritdoc/>
+    public Mediator Mediator 
+    { get; } = new();
 }

@@ -14,6 +14,7 @@
 using System.Windows;
 using System.Windows.Threading;
 using BadEcho.Configuration;
+using BadEcho.Presentation.Messaging;
 
 namespace BadEcho.Vision.Extensibility;
 
@@ -61,4 +62,9 @@ public interface IVisionConfiguration
     /// Gets or sets the dispatcher Vision modules should execute dispatcher-sensitive operations on.
     /// </summary>
     Dispatcher? Dispatcher { get; set; }
+
+    /// <summary>
+    /// Gets a mediator that Vision modules can communicate with each other through.
+    /// </summary>
+    Mediator Mediator { get; }
 }

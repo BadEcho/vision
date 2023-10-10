@@ -34,13 +34,14 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
     /// Initializes a new instance of the <see cref="ApocalypseViewModel"/> class.
     /// </summary>
     public ApocalypseViewModel()
-        : this(new ApocalypseModuleConfiguration())
+        : this(new ApocalypseModuleConfiguration(), new Mediator())
     { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ApocalypseViewModel"/> class.
     /// </summary>
     /// <param name="configuration">The Apocalypse module configuration to apply to this view model.</param>
+    /// <param name="mediator">A mediator for messages to be sent or received through.</param>
     /// <remarks>
     /// <para>
     /// The maximum number of messages in the module's configuration controls how many events are shown on the overlay during the
@@ -54,7 +55,7 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
     /// get filled up when we're experiencing a crazier-than-normal gameplay situation).
     /// </para>
     /// </remarks>
-    public ApocalypseViewModel(ApocalypseModuleConfiguration configuration)
+    public ApocalypseViewModel(ApocalypseModuleConfiguration configuration, Mediator mediator)
         : base(new CollectionViewModelOptions
                {
                    AsyncBatchBindings = true,
@@ -65,6 +66,7 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
                                                                               OrderFromLocation(configuration)))
     {
         _effectMessageMaxWidth = configuration.EffectMessageMaxWidth;
+        Mediator = mediator;
 
         _timeoutTimer = new System.Timers.Timer(TimeSpan.FromMinutes(configuration.TimeoutMinutes));
         _timeoutTimer.Elapsed += HandleTimeoutTimerElapsed;
@@ -100,7 +102,7 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
     /// Gets the mediator for messages to be sent or received through.
     /// </summary>
     public Mediator Mediator 
-    { get; } = new();
+    { get; }
 
     /// <summary>
     /// Gets a value that can be applied on quantities where directionality must be congruous with the location of the

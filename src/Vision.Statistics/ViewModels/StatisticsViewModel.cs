@@ -11,6 +11,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using BadEcho.Presentation.Messaging;
 using BadEcho.Presentation.ViewModels;
 
 namespace BadEcho.Vision.Statistics.ViewModels;
@@ -20,15 +21,51 @@ namespace BadEcho.Vision.Statistics.ViewModels;
 /// </summary>
 internal sealed class StatisticsViewModel : PolymorphicCollectionViewModel<IStatistic,IStatisticViewModel>
 {
+    private Mediator _mediator;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="StatisticsViewModel"/> class.
     /// </summary>
     public StatisticsViewModel()
+        : this(new Mediator())
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StatisticsViewModel"/> class.
+    /// </summary>
+    /// <param name="mediator">A mediator for messages to be sent or received through.</param>
+    public StatisticsViewModel(Mediator mediator)
         : base(new CollectionViewModelOptions {AsyncBatchBindings = false, RemoveChildrenMissingFromBatch = true})
     {
         RegisterDerivation<WholeStatistic, WholeStatisticViewModel>();
         RegisterDerivation<FractionalStatistic, FractionalStatisticViewModel>();
         RegisterDerivation<CoordinateStatistic, CoordinateStatisticViewModel>();
         RegisterDerivation<StatisticGroup, StatisticGroupViewModel>();
+
+        _mediator = mediator;
+    }
+
+    /// <inheritdoc/>
+    public override IStatisticViewModel CreateChild(IStatistic model)
+    {
+        IStatisticViewModel viewModel = base.CreateChild(model);
+
+        viewModel.Mediator = _mediator;
+
+        return viewModel;
+    }
+    
+    /// <summary>
+    /// Changes the mediator that children use to send or receive messages through.
+    /// </summary>
+    /// <param name="mediator"></param>
+    public void ChangeMediator(Mediator mediator)
+    {
+        foreach (IStatisticViewModel viewModel in Children)
+        {
+            viewModel.Mediator = mediator;
+        }
+
+        _mediator = mediator;
     }
 }

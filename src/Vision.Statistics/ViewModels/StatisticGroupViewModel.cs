@@ -11,6 +11,8 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using BadEcho.Presentation.Messaging;
+
 namespace BadEcho.Vision.Statistics.ViewModels;
 
 /// <summary>
@@ -56,5 +58,14 @@ internal sealed class StatisticGroupViewModel : StatisticViewModel<StatisticGrou
         base.OnUnbound(model);
 
         Statistics.Unbind();
+    }
+
+    /// <inheritdoc/>
+    protected override void OnPropertyChanged(string? propertyName = null)
+    {
+        base.OnPropertyChanged(propertyName);
+
+        if (propertyName == nameof(Mediator))
+            Statistics.ChangeMediator(Mediator ?? new Mediator());
     }
 }

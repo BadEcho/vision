@@ -48,7 +48,7 @@ internal sealed class StatisticsModule : VisionModule<IStatistic, StatisticsView
     /// <inheritdoc/>
     protected override StatisticsViewModel InitializeViewModel()
     {
-        var viewModel = new StatisticsViewModel();
+        var viewModel = new StatisticsViewModel(Configuration.Mediator);
 
         if (Configuration.Dispatcher != null)
             viewModel.ChangeDispatcher(Configuration.Dispatcher);
