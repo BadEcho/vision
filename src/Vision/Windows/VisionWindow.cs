@@ -92,7 +92,7 @@ internal sealed class VisionWindow : Window<VisionViewModel>
 
         IntPtr handle = new WindowInteropHelper(this).Handle;
 
-        _native = new NativeWindow(handle, new PresentationWindowWrapper(handle));
+        _native = new NativeWindow(new PresentationWindowWrapper(handle));
 
         _native.HotKeyPressed += HandleHotKeyPressed;
 
