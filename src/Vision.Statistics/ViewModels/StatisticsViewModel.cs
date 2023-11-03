@@ -35,7 +35,7 @@ internal sealed class StatisticsViewModel : PolymorphicCollectionViewModel<IStat
     /// </summary>
     /// <param name="mediator">A mediator for messages to be sent or received through.</param>
     public StatisticsViewModel(Mediator mediator)
-        : base(new CollectionViewModelOptions {AsyncBatchBindings = false, RemoveChildrenMissingFromBatch = true})
+        : base(new CollectionViewModelOptions {AsyncBatchBindings = false, RemoveItemsMissingFromBatch = true})
     {
         RegisterDerivation<WholeStatistic, WholeStatisticViewModel>();
         RegisterDerivation<FractionalStatistic, FractionalStatisticViewModel>();
@@ -46,9 +46,9 @@ internal sealed class StatisticsViewModel : PolymorphicCollectionViewModel<IStat
     }
 
     /// <inheritdoc/>
-    public override IStatisticViewModel CreateChild(IStatistic model)
+    public override IStatisticViewModel CreateItem(IStatistic model)
     {
-        IStatisticViewModel viewModel = base.CreateChild(model);
+        IStatisticViewModel viewModel = base.CreateItem(model);
 
         viewModel.Mediator = _mediator;
 
@@ -61,7 +61,7 @@ internal sealed class StatisticsViewModel : PolymorphicCollectionViewModel<IStat
     /// <param name="mediator"></param>
     public void ChangeMediator(Mediator mediator)
     {
-        foreach (IStatisticViewModel viewModel in Children)
+        foreach (IStatisticViewModel viewModel in Items)
         {
             viewModel.Mediator = mediator;
         }

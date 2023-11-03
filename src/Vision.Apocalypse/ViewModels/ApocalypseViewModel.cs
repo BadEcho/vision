@@ -112,9 +112,9 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
     { get; }
 
     /// <inheritdoc/>
-    public override IApocalypseEventViewModel CreateChild(ApocalypseEvent model)
+    public override IApocalypseEventViewModel CreateItem(ApocalypseEvent model)
     {
-        var viewModel = base.CreateChild(model);
+        var viewModel = base.CreateItem(model);
             
         viewModel.EffectMessageMaxWidth = _effectMessageMaxWidth;
 
@@ -133,9 +133,9 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
     }
 
     /// <inheritdoc/>
-    protected override void OnChildrenChanged(CollectionPropertyChangedEventArgs e)
+    protected override void OnItemsChanged(CollectionPropertyChangedEventArgs e)
     {
-        base.OnChildrenChanged(e);
+        base.OnItemsChanged(e);
 
         if (e.Action is CollectionPropertyChangedAction.Add)
         {

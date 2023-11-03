@@ -40,7 +40,7 @@ internal sealed class VisionViewModel : CollectionViewModel<ModuleHost, ModuleHo
     }
 
     /// <inheritdoc/>
-    public override ModuleHostViewModel CreateChild(ModuleHost model)
+    public override ModuleHostViewModel CreateItem(ModuleHost model)
     {
         var viewModel = new ModuleHostViewModel();
             
@@ -50,9 +50,9 @@ internal sealed class VisionViewModel : CollectionViewModel<ModuleHost, ModuleHo
     }
         
     /// <inheritdoc/>
-    public override void UpdateChild(ModuleHost model)
+    public override void UpdateItem(ModuleHost model)
     {
-        var existingChild = FindChild<ModuleHostViewModel>(model);
+        var existingChild = FindItem<ModuleHostViewModel>(model);
 
         existingChild?.Bind(model);
     }
