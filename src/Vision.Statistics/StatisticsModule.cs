@@ -28,6 +28,10 @@ internal sealed class StatisticsModule : VisionModule<IStatistic, StatisticsView
     private const string DEPENDENCY_NAME 
         = nameof(StatisticsModule) + nameof(LocalDependency);
 
+    private static readonly JsonSerializerOptions _StatisticOptions = new()
+                                                                      {
+                                                                          Converters = { new StatisticConverter() }
+                                                                      };
     /// <summary>
     /// Initializes a new instance of the <see cref="StatisticsModule"/> class.
     /// </summary>
@@ -56,15 +60,8 @@ internal sealed class StatisticsModule : VisionModule<IStatistic, StatisticsView
         return viewModel;
     }
 
-    protected override IEnumerable<IStatistic>? ParseMessages(string messages)
-    {
-        var options = new JsonSerializerOptions
-                      {
-                          Converters = { new StatisticConverter() }
-                      };
-
-        return JsonSerializer.Deserialize<IEnumerable<IStatistic>>(messages, options);
-    }
+    protected override IEnumerable<IStatistic>? ParseMessages(string messages) 
+        => JsonSerializer.Deserialize<IEnumerable<IStatistic>>(messages, _StatisticOptions);
 
     /// <summary>
     /// Provides a convention provider that allows for an armed context in which this module can have its required configuration

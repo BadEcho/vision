@@ -3,7 +3,7 @@
   <PropertyGroup>
 		<Product>Vision</Product>
 	  <OutputType>WinExe</OutputType>
-	  <TargetFramework>net7.0-windows</TargetFramework>
+	  <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
 		<IsPackable>false</IsPackable>
   </PropertyGroup>

@@ -23,6 +23,10 @@ namespace BadEcho.Vision.Statistics;
 /// </summary>
 public sealed class StatisticConverter : JsonPolymorphicConverter<StatisticType,IStatistic>
 {
+    private static readonly JsonSerializerOptions _StatisticOptions = new()
+                                                                      {
+                                                                          Converters = { new StatisticConverter() }
+                                                                      };
     /// <inheritdoc/>
     protected override string DataPropertyName
         => "Statistic";
@@ -30,17 +34,12 @@ public sealed class StatisticConverter : JsonPolymorphicConverter<StatisticType,
     /// <inheritdoc/>
     protected override IStatistic? ReadFromDescriptor(ref Utf8JsonReader reader, StatisticType typeDescriptor)
     {
-        var options = new JsonSerializerOptions
-                      {
-                          Converters = { new StatisticConverter() }
-                      };
-
         return typeDescriptor switch
         {
             StatisticType.Whole => JsonSerializer.Deserialize<WholeStatistic>(ref reader),
             StatisticType.Fractional => JsonSerializer.Deserialize<FractionalStatistic>(ref reader),
             StatisticType.Coordinate => JsonSerializer.Deserialize<CoordinateStatistic>(ref reader),
-            StatisticType.Group => JsonSerializer.Deserialize<StatisticGroup>(ref reader, options),
+            StatisticType.Group => JsonSerializer.Deserialize<StatisticGroup>(ref reader, _StatisticOptions),
             _ => throw new InvalidEnumArgumentException(nameof(typeDescriptor), 
                                                         (int) typeDescriptor, 
                                                         typeof(StatisticType))

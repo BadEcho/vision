@@ -88,7 +88,7 @@ public sealed class EnemyApocalypseEvent : ApocalypseEvent
                                                         typeof(BonusDamageType))
         };
 
-    private static IEnumerable<(Func<Stream>, int)> GetWeightedSounds(BonusDamageType bonusDamageType, bool isExtreme)
+    private static List<(Func<Stream>, int)> GetWeightedSounds(BonusDamageType bonusDamageType, bool isExtreme)
         => bonusDamageType switch
         {
             BonusDamageType.CriticalHit

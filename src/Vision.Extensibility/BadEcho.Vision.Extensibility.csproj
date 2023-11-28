@@ -5,7 +5,7 @@
 		<Description>Framework for creating Vision module plugins.</Description>
 		<Title>$(Product)</Title>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-	  <TargetFramework>net7.0-windows</TargetFramework>
+	  <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
