@@ -2,18 +2,19 @@
   "launchDisplay": 1,
   "scaleX": 1.33,
   "scaleY": 1.33,
-  "forceSoftwareRendering": true, 
-  "leftAnchorMargin": "0,125,0,0",
+  "forceSoftwareRendering": true,
+  "leftAnchorMargin": "0,225,0,0",
   "titleLocation": "TopLeft",
-  "messageFilesDirectory": "C:\\src\\BadEcho\\omnified-hacks\\targets\\eldenRing",
+  "messageFilesDirectory": "C:\\src\\BadEcho\\omnified-hacks\\targets\\starfield",
   "modules": {
     "BadEcho.Vision.Statistics": {
       "location": "TopLeft"
     },
     "BadEcho.Vision.Apocalypse": {
-      "location": "TopRight",
+      "location": "TopCenter",
       "maxMessages": 3,
-      "effectMessageMaxWidth": 650
+      "effectMessageMaxWidth": 650,
+      "timeoutMinutes": 1
     }
   }
 }
