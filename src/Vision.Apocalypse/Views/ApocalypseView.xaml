@@ -23,7 +23,7 @@
               d:DesignWidth="650">
     <d:DesignProperties.DataContext>
         <vm:ApocalypseViewModel>
-            <vm:ApocalypseViewModel.Children>
+            <vm:ApocalypseViewModel.Items>
                 <vm:RiskOfMurderEventViewModel EffectMessage="Something has happened that caused 53 billion damage, leaving the player with 300 health."
                                                Timestamp="09/02/2021 11:59"
                                                DieRoll="6"
@@ -39,7 +39,7 @@
                                                DieRoll="7"
                                                MurderRoll="5"
                                                />
-            </vm:ApocalypseViewModel.Children>
+            </vm:ApocalypseViewModel.Items>
         </vm:ApocalypseViewModel>
     </d:DesignProperties.DataContext>
     <badEcho:View.Resources>
@@ -48,9 +48,6 @@
             can't easily be initialized in XAML (i.e. any with generics).-->
         <d:DataTemplate x:Key="DesignTimePlayerEventTemplate">
             <v:PlayerApocalypseEventView/>
-        </d:DataTemplate>
-        <d:DataTemplate x:Key="DesignTimeRiskEventTemplate">
-            <v:RiskOfMurderEventView/>
         </d:DataTemplate>
         <!--Many Apocalypse event view models require view associations that are sensitive to the places both it and any immediately 
             implemented interface occupy within the object hierarchy; this warrants the use of a specialized template selector.-->
@@ -164,7 +161,7 @@
         </Style>
     </badEcho:View.Resources>
     <Grid Visibility="{Binding IsVisible, Converter={StaticResource BooleanVisibilityConverter}}">
-        <ItemsControl ItemsSource="{Binding Children}">
+        <ItemsControl ItemsSource="{Binding Items}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="0,1,0,0">

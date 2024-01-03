@@ -24,10 +24,10 @@
         <vm:StatisticGroupViewModel Name="Damage Taken">
             <vm:StatisticGroupViewModel.Statistics>
                 <vm:StatisticsViewModel>
-                    <vm:StatisticsViewModel.Children>
+                    <vm:StatisticsViewModel.Items>
                         <vm:WholeStatisticViewModel Name="Last" Value="3031"/>
                         <vm:WholeStatisticViewModel Name="Max" Value="293939339"/>
-                    </vm:StatisticsViewModel.Children>
+                    </vm:StatisticsViewModel.Items>
                 </vm:StatisticsViewModel>
             </vm:StatisticGroupViewModel.Statistics>
         </vm:StatisticGroupViewModel>

@@ -21,7 +21,7 @@
       mc:Ignorable="d"
       VerticalAlignment="Stretch">
     <Grid>
-        <ItemsControl ItemsSource="{Binding Children}"
+        <ItemsControl ItemsSource="{Binding Items}"
                       Margin="15,0,15,0">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

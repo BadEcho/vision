@@ -69,7 +69,7 @@ namespace BadEcho.Vision.Properties {
         ///--&gt;
         ///&lt;Grid xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;
         ///    
-        ///    &lt;ItemsControl ItemsSource=&quot;{Binding Children}&quot; /&gt;
+        ///    &lt;ItemsControl ItemsSource=&quot;{Binding Items}&quot; /&gt;
         ///
         ///&lt;/Grid&gt;.
         /// </summary>
