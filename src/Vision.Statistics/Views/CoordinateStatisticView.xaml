@@ -48,8 +48,8 @@
                 <ColumnDefinition Width="*" SharedSizeGroup="CoordinateValueColumn"/>
             </Grid.ColumnDefinitions>
             <!--
-                Unlike other statistic names, which are aligned on the left so they all start from the same position, 
-                we want these ones to be aligned on the right side, so the colons are lined up.
+                Unlike other statistic names, which are aligned on the left so that they all start from the same position, 
+                we want these to be aligned on the right side, so the colons are lined up.
             -->
             <badEcho:OutlinedTextElement Style="{StaticResource StatisticNameTextStyle}"
                                          Text="X"     

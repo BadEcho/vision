@@ -23,7 +23,7 @@ namespace BadEcho.Vision.Apocalypse;
 /// <remarks>
 /// <para>
 /// This event, which is one of the possible outcomes for the dreaded "risk of murder" roll, is the only time
-/// normal, vanilla damage from an Omnified game is ever applied to the player, outside of a
+/// normal, vanilla damage from an Omnified game is ever applied to the player, outside a
 /// <see cref="TeleportitisEvent"/> (which itself usually ends up being responsible for more damage, indirectly at
 /// least).
 /// </para>

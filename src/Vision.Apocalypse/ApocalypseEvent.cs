@@ -26,7 +26,7 @@ namespace BadEcho.Vision.Apocalypse;
 /// system can apply to entities receiving damage.
 /// </para>
 /// <para>
-/// All of the core Apocalypse events have a timestamp and are convertible into a recognizable effect message. These messages,
+/// All the core Apocalypse events have a timestamp and are convertible into a recognizable effect message. These messages,
 /// displayed to the player to describe what the hell is happening in their game, as well show all the other auxiliary pieces of
 /// data specific to the event, are fleshed out in the particular event type that corresponds to the applied random effect.
 /// </para>

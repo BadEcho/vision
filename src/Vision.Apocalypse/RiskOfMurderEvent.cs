@@ -25,7 +25,7 @@ public abstract class RiskOfMurderEvent : PlayerApocalypseEvent
 {
     /// <summary>
     /// Gets the risk of murder die roll for this Player Apocalypse event, which acts as the main determinant in whether
-    /// or not the player is murdered absolutely.
+    /// the player is murdered absolutely.
     /// </summary>
     public int MurderRoll
     { get; init; }

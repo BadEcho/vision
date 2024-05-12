@@ -66,7 +66,7 @@ internal sealed class ModuleHost : IDisposable
     { get; }
 
     /// <summary>
-    /// Creates a host container for the a module responsible for displaying the Vision application's title.
+    /// Creates a host container for the module responsible for displaying the Vision application's title.
     /// </summary>
     /// <param name="configuration">Configuration settings for the Vision application.</param>
     /// <returns>A <see cref="ModuleHost"/> instance for displaying the Vision application's title.</returns>

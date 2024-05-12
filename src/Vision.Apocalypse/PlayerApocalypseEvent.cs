@@ -31,7 +31,7 @@ namespace BadEcho.Vision.Apocalypse;
 /// </para>
 /// <para>
 /// For every possible random effect, a corresponding <see cref="PlayerApocalypseEvent"/>-derived type exists, each of which
-/// does the job of providing all the details in regards to what just happened to our poor player.
+/// does the job of providing all the details regarding what just happened to our poor player.
 /// </para>
 /// </remarks>
 public abstract class PlayerApocalypseEvent : ApocalypseEvent

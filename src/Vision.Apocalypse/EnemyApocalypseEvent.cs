@@ -56,7 +56,7 @@ public sealed class EnemyApocalypseEvent : ApocalypseEvent
 
     /// <summary>
     /// Gets a value indicating if this Enemy Apocalypse event should be considered as extreme due to how high the
-    /// <see cref="BonusMultiplier"/> is in regards to the range of possible multiplier values.
+    /// <see cref="BonusMultiplier"/> is regarding the range of possible multiplier values.
     /// </summary>
     public bool IsExtreme
     { get; init; }

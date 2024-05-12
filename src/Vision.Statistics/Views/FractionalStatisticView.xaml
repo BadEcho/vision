@@ -31,7 +31,7 @@
     <badEcho:View.Resources>
         <badEcho:HexadecimalToColorConverter x:Key="HexadecimalColorConverter" />
         <!--
-            Since we're shifting the gradient horizontally, we zero out the y-axis so we have
+            Since we're shifting the gradient horizontally, we zero out the y-axis so that we have
             straight vertical lines.
         -->
         <badEcho:PercentageToPointConverter x:Key="PercentagePointConverter"
@@ -72,12 +72,12 @@
                                          Grid.Row="0"
                                          />
             <!--    
-                We want a bit of a margin placed on the right between the content and its container (whose background is basically the
+                We want a bit of a margin placed on the right between the content and its container (whose background is basically
                 the fractional bar gauge) in order to add a bit of extra bar color after the end of the maximum number value.
             
                 We also want to give ourselves a bit of space here to prevent the resizing of the root border upon a change occurring to 
                 another view's statistic value (as all statistic view grids use a shared size group). This can result in a constantly shifting
-                fractional bar if the changing statistic is doing so at a fast rate (a bit of an eye sore).
+                fractional bar if the changing statistic is doing so at a fast rate (a bit of an eyesore).
             
                 We need to create this buffer here and not the root border as any margin and padding applied there has no bearing on the shared
                 group size of statistic grids.

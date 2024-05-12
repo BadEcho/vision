@@ -57,7 +57,7 @@
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
         <!--
-            Text gets blown up so you can't miss it. Adjusting scale is incredibly more performant than animating the font size, of course.
+            Text gets blown up so that you can't miss it. Adjusting scale is incredibly more performant than animating the font size, of course.
             Let's not dwell on why I was originally doing that...
         -->
         <DoubleAnimation Storyboard.TargetName="Value"
@@ -107,7 +107,7 @@
                 <BounceEase EasingMode="EaseInOut" Bounciness="2" Bounces="3"/>
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
-        <!--Finally, we gotta switch on over to that red (or whatever the critical color resource is set to) alert tone baby!-->
+        <!--Finally, we have to switch on over to that red (or whatever the critical color resource is set to) alert tone baby!-->
         <ColorAnimation Storyboard.TargetName="Value" 
                         Storyboard.TargetProperty="(badEcho:OutlinedTextElement.Fill).(SolidColorBrush.Color)"
                         From="{StaticResource {x:Static t:Colors.TextColorKey}}"
