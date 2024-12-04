@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 		<Product>Vision Statistics Module</Product>
-	  <TargetFramework>net8.0-windows</TargetFramework>
+	  <TargetFramework>net9.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
 	  <IsPackable>false</IsPackable>
   </PropertyGroup>
