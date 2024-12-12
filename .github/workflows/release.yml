@@ -1,0 +1,48 @@
+# Create a new stable release of Bad Echo software.
+
+name: Create Stable Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      component-to-increment:
+        description: Version Component to Increment
+        required: true
+        type: choice
+        options:
+        - Major
+        - Minor
+        - Patch
+
+env:
+  product-name: Bad Echo Vision
+
+jobs:
+  build:
+    name: Execute Build Workflow
+    uses: ./.github/workflows/ci.yml
+    with:
+      release-build: true
+      skip-tests: true
+    secrets:
+      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+  create-release:
+    name: Create Release
+    needs: build
+    runs-on: windows-2022
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        fetch-depth: 0      
+    - name: Setup Git User
+      shell: pwsh
+      run: git config --global user.email "chamber@badecho.com"; git config --global user.name "Echo Chamber"
+    - name: Create Release Tag
+      shell: pwsh      
+      run: .\build\New-ReleaseTag.ps1 ${{ env.product-name }}      
+    - name: Bump Version
+      shell: pwsh
+      run: .\build\Bump-Version.ps1 ${{ github.event.inputs.component-to-increment }}
