@@ -126,7 +126,7 @@ public abstract class VisionModule<TModel, TViewModel> : IVisionModule
         {
             Logger.Error(Strings.ReadMessagesFailure.InvariantFormat(messages), jsonEx);
 
-            return Enumerable.Empty<TModel>();
+            return [];
         }
     }
 

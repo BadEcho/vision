@@ -26,7 +26,7 @@ namespace BadEcho.Vision.Controls;
 /// <summary>
 /// Provides an area where you can attach child elements to specific anchor points encompassing the area.
 /// </summary>
-public sealed class AnchorPointPanel : Panel
+internal sealed class AnchorPointPanel : Panel
 {
     private VisionConfiguration _configuration;
 

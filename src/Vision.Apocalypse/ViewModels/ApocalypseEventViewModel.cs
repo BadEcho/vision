@@ -25,7 +25,7 @@ internal class ApocalypseEventViewModel<TApocalypseEvent> : ViewModel<Apocalypse
 {
     private string _effectMessage = string.Empty;
     private double _effectMessageMaxWidth = double.NaN;
-    private IEnumerable<byte> _effectSound = Enumerable.Empty<byte>();
+    private IEnumerable<byte> _effectSound = [];
     private bool _isEffectSoundUninterruptible;
     private DateTime _timestamp;
     private int _index;
@@ -96,6 +96,6 @@ internal class ApocalypseEventViewModel<TApocalypseEvent> : ViewModel<Apocalypse
         Timestamp = default;
         EffectMessage = string.Empty;
         EffectMessageMaxWidth = double.NaN;
-        EffectSound = Enumerable.Empty<byte>();
+        EffectSound = [];
     }
 }

@@ -840,3 +840,7 @@ dotnet_style_prefer_conditional_expression_over_assignment = true:silent
 dotnet_style_prefer_conditional_expression_over_return = true:silent
 dotnet_style_explicit_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_tuple_names = true:suggestion
+
+# ConfigureAwait(false) shouldn't be used in application code, especially when we're dealing with a UI.
+[src/Vision/**]
+dotnet_diagnostic.CA2007.severity = none

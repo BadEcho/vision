@@ -78,7 +78,7 @@ public abstract class ApocalypseEvent
             Func<Stream>? soundAccessor = SoundMap.Next();
 
             if (soundAccessor == null)
-                return Enumerable.Empty<byte>();
+                return [];
 
             using (var sound = soundAccessor())
             {

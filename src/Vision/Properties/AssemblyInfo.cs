@@ -17,3 +17,15 @@ using BadEcho.Properties;
                            Scope = "member", 
                            Target = "~M:BadEcho.Vision.Windows.VisionWindow.#ctor",
                            Justification = "This constructor makes a call to the base constructor, and expression bodies don't look appetizing at all next to such an invocation.")]
+
+[assembly: SuppressMessage("Maintainability",
+                           "CA1515:Consider making public types internal",
+                           Scope = "type",
+                           Target = "~T:BadEcho.Vision.App",
+                           Justification = "WPF App classes are generated as public.")]
+
+[assembly: SuppressMessage("Maintainability",
+                           "CA1515:Consider making public types internal",
+                           Scope = "type",
+                           Target = "~T:BadEcho.Vision.Views.VisionTitleView",
+                           Justification = "WPF window classes are generated as public.")]
