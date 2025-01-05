@@ -4,3 +4,9 @@
 [submodule "build"]
 	path = build
 	url = https://github.com/BadEcho/build.git
+[submodule "src/Extensibility"]
+	path = src/Extensibility
+	url = https://github.com/BadEcho/extensibility
+[submodule "src/Presentation"]
+	path = src/Presentation
+	url = https://github.com/BadEcho/presentation
