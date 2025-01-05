@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(CorePath)\Presentation\BadEcho.Presentation.csproj" />
+    <ProjectReference Include="$(PresentationPath)\Presentation\BadEcho.Presentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>

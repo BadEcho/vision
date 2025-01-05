@@ -1,2 +1,4 @@
 # Prevent Bad Echo Core Technologies from being packaged with software from this repo.
 -p:CoreIsPackable=false
+-p:ExtensibilityIsPackable=false
+-p:PresentationIsPackable=false

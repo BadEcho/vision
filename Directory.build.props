@@ -1,14 +1,17 @@
 <Project>
 	<PropertyGroup>
-		<UniversalProperties>$([MSBuild]::GetPathOfFileAbove('Universal.build.props', '$(MSBuildThisFileDirectory)..\'))</UniversalProperties>
-		<CoreProperties Condition="Exists($(UniversalProperties))">$(UniversalProperties)</CoreProperties>
-		<CoreProperties Condition="'$(CoreProperties)' == ''">src\Core\Directory.build.props</CoreProperties>
+		<RootProperties>$([MSBuild]::GetPathOfFileAbove('Root.build.props', '$(MSBuildThisFileDirectory)..\'))</RootProperties>
+		<BuildProperties Condition="Exists($(RootProperties))">$(RootProperties)</BuildProperties>
+		<BuildProperties Condition="'$(BuildProperties)' == ''">build\Build.props</BuildProperties>
 	</PropertyGroup>
-	<Import Project="$(CoreProperties)"/>
+	<Import Project="$(BuildProperties)"/>
 	<PropertyGroup>
 		<RepositoryUrl>https://github.com/BadEcho/vision</RepositoryUrl>
 		<CorePath Condition="'$(CorePath)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\src\Core\src'))</CorePath>
+		<ExtensibilityPath Condition="'$(ExtensibilityPath)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\src\Extensibility\src'))</ExtensibilityPath>
+		<PresentationPath Condition="'$(PresentationPath)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\src\Presentation\src'))</PresentationPath>
 	</PropertyGroup>
+	
 	<!--This is needed in order to prevent inaccurate errors from being displayed during design-time.-->
 	<Target Name="DisableDesignTimeCompileCheck" AfterTargets="_CheckCompileDesignTimePrerequisite">
 		<PropertyGroup>
