@@ -754,19 +754,26 @@ dotnet_diagnostic.IDE0055.severity = none
 # IDE0008: Use explicit type
 dotnet_diagnostic.IDE0008.severity = none
 
-# IDE0290: They need to flesh out primary constructors more before I switch over to it. 
-# For example: readonly fields; this new feature is unconscionable to use without at least this.
-dotnet_diagnostic.IDE0290.severity = none
-csharp_style_prefer_primary_constructors = false
-
 # C# Coding Conventions
 csharp_style_expression_bodied_local_functions = false:suggestion
 
 # IDE0130: Namespace does not match folder structure
 dotnet_diagnostic.IDE0130.severity = none
-csharp_indent_labels = one_less_than_current
+
+# IDE0290: They need to flesh out primary constructors more before I switch over to it. 
+# For example: readonly fields; this new feature is unconscionable to use without at least this.
+dotnet_diagnostic.IDE0290.severity = none
+csharp_style_prefer_primary_constructors = false
+
+# IDE0028,0300,0301,0305: Resharper needs to be updated to support the new syntax before these are implemented.
+dotnet_diagnostic.IDE0028.severity = none
+dotnet_diagnostic.IDE0300.severity = none
+dotnet_diagnostic.IDE0301.severity = none
+dotnet_diagnostic.IDE0305.severity = none
+
+# I don't like using statements.
+csharp_prefer_simple_using_statement = false:suggestion
 csharp_using_directive_placement = outside_namespace:silent
-csharp_prefer_simple_using_statement = false:silent
 csharp_prefer_braces = true:silent
 csharp_style_prefer_method_group_conversion = true:silent
 csharp_style_prefer_top_level_statements = true:silent
@@ -777,6 +784,8 @@ csharp_style_expression_bodied_properties = true:silent
 csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_lambdas = true:suggestion
+csharp_indent_labels = one_less_than_current
+csharp_style_throw_expression = true:suggestion
 [*.{cs,vb}]
 #### Naming styles ####
 
@@ -824,23 +833,25 @@ dotnet_naming_style.pascal_case.required_prefix =
 dotnet_naming_style.pascal_case.required_suffix = 
 dotnet_naming_style.pascal_case.word_separator = 
 dotnet_naming_style.pascal_case.capitalization = pascal_case
-dotnet_style_operator_placement_when_wrapping = beginning_of_line
-tab_width = 4
-indent_size = 4
-end_of_line = crlf
 dotnet_style_coalesce_expression = true:suggestion
 dotnet_style_null_propagation = true:suggestion
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
 dotnet_style_prefer_auto_properties = true:silent
 dotnet_style_object_initializer = true:suggestion
-dotnet_style_prefer_collection_expression = true:suggestion
+dotnet_style_prefer_collection_expression = when_types_exactly_match:suggestion
 dotnet_style_collection_initializer = true:suggestion
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
 dotnet_style_prefer_conditional_expression_over_assignment = true:silent
 dotnet_style_prefer_conditional_expression_over_return = true:silent
 dotnet_style_explicit_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_tuple_names = true:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_style_prefer_compound_assignment = true:suggestion
+dotnet_style_prefer_simplified_interpolation = true:suggestion
+dotnet_style_namespace_match_folder = true:suggestion
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
+tab_width = 4
+indent_size = 4
+end_of_line = crlf
 
-# ConfigureAwait(false) shouldn't be used in application code, especially when we're dealing with a UI.
-[src/Vision/**]
-dotnet_diagnostic.CA2007.severity = none
+file_header_template =-----------------------------------------------------------------------\n<copyright>\n     Created by Matt Weber <matt@badecho.com>\n     Copyright @ 2025 Bad Echo LLC. All rights reserved.\n\n     Bad Echo Technologies are licensed under the\n     GNU Affero General Public License v3.0.\n\n     See accompanying file LICENSE.md or a copy at:\n     https://www.gnu.org/licenses/agpl-3.0.html\n</copyright>\n-----------------------------------------------------------------------
