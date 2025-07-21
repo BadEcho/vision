@@ -1,49 +1,50 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-		<Product>Vision Extensibility Framework</Product>
+	<PropertyGroup>
+		<Title>Vision Extensibility Framework</Title>
+		<AssemblyTitle>$(Title)</AssemblyTitle>
+		<Product>Vision</Product>
 		<Description>Framework for creating Vision module plugins.</Description>
-		<Title>$(Product)</Title>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-	  <TargetFramework>net9.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Themes\Resources\DotMatrix.ttf" />
-    <None Remove="Themes\Resources\Visionista.otf" Condition="Exists('Themes\Resources\Visionista.otf')" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Themes\Resources\DotMatrix.ttf" />
+		<None Remove="Themes\Resources\Visionista.otf" Condition="Exists('Themes\Resources\Visionista.otf')" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="$(PresentationPath)\Presentation\BadEcho.Presentation.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="$(PresentationPath)\Presentation\BadEcho.Presentation.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Themes\Resources\DotMatrix.ttf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Themes\Resources\Visionista.otf" Condition="Exists('Themes\Resources\Visionista.otf')">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Themes\Resources\DotMatrix.ttf">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Themes\Resources\Visionista.otf" Condition="Exists('Themes\Resources\Visionista.otf')">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Strings.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Strings.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Strings.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Strings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Strings.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Strings.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath=""/>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath=""/>
+	</ItemGroup>
 
 </Project>

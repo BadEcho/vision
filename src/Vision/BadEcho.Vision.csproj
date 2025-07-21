@@ -1,67 +1,69 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-		<Product>Vision</Product>
-	  <OutputType>WinExe</OutputType>
-	  <TargetFramework>net9.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
+	<PropertyGroup>
+		<Title>Vision</Title>
+		<AssemblyTitle>$(Title)</AssemblyTitle>
+		<Product>$(Title)</Product>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
 		<IsPackable>false</IsPackable>
-  </PropertyGroup>
+	</PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <ApplicationManifest>Manifests\debug.manifest</ApplicationManifest>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <ApplicationManifest>Manifests\release.manifest</ApplicationManifest>
-  </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+		<ApplicationManifest>Manifests\debug.manifest</ApplicationManifest>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+		<ApplicationManifest>Manifests\release.manifest</ApplicationManifest>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Page Remove="Windows\VisionWindowContent.xaml" />
-    <Page Remove="Windows\VisionWindowStyle.xaml" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="$(PresentationPath)\Presentation\BadEcho.Presentation.csproj" />
-    <ProjectReference Include="$(CorePath)\Common\BadEcho.Common.csproj" />
-    <ProjectReference Include="..\Vision.Extensibility\BadEcho.Vision.Extensibility.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Resource Include="Windows\VisionWindowContent.xaml">
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Resource>
-    <Resource Include="Windows\VisionWindowStyle.xaml">
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Resource>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Compile Update="Properties\Strings.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Xaml.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Xaml.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Strings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Xaml.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Xaml.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <None Update="settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<Page Remove="Windows\VisionWindowContent.xaml" />
+		<Page Remove="Windows\VisionWindowStyle.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="$(PresentationPath)\Presentation\BadEcho.Presentation.csproj" />
+		<ProjectReference Include="$(CorePath)\Common\BadEcho.Common.csproj" />
+		<ProjectReference Include="..\Vision.Extensibility\BadEcho.Vision.Extensibility.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Windows\VisionWindowContent.xaml">
+			<Generator>XamlIntelliSenseFileGenerator</Generator>
+		</Resource>
+		<Resource Include="Windows\VisionWindowStyle.xaml">
+			<Generator>XamlIntelliSenseFileGenerator</Generator>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Properties\Strings.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Strings.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Properties\Xaml.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Xaml.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Strings.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Strings.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Properties\Xaml.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Xaml.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="settings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 </Project>
