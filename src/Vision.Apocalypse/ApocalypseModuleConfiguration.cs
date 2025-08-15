@@ -30,5 +30,5 @@ public sealed class ApocalypseModuleConfiguration : VisionModuleConfiguration
     /// Gets the number of minutes of inactivity until this module becomes hidden if no new events are received.
     /// </summary>
     public int TimeoutMinutes
-    { get; init; }
+    { get; init; } = 1;
 }
