@@ -24,6 +24,7 @@
                                          Y="0.10857523977757"
                                          Z="1997.649169219"
                                          Format="{}{0:0.000}"
+                                         IsVisible="True"
                                          />
     </d:DesignProperties.DataContext>
     <badEcho:View.Resources>

@@ -27,24 +27,27 @@
                                                  MaximumValue="1000"
                                                  PrimaryBarColor="#FF43BC50"
                                                  SecondaryBarColor="#FF27D88D"
+                                                 IsVisible="True"
                                                  />
                 <vm:FractionalStatisticViewModel Name="Player Stamina"
                                                  CurrentValue="400"
                                                  MaximumValue="800"
                                                  PrimaryBarColor="#FFE4C11B"
                                                  SecondaryBarColor="#FFF8E33A"
+                                                 IsVisible="True"
                                                  />
                 <vm:WholeStatisticViewModel Name="Money"
                                             IsCritical="False"
                                             Value="29333882"
+                                            IsVisible="True"
                                             />
                 <vm:StatisticGroupViewModel Name="Damage Taken">
                     <vm:StatisticGroupViewModel.Statistics>
                         <vm:StatisticsViewModel>
                             <vm:StatisticsViewModel.Items>
-                                <vm:WholeStatisticViewModel Name="Last" Value="100" />
-                                <vm:WholeStatisticViewModel Name="Max" Value="200" />
-                                <vm:WholeStatisticViewModel Name="Total" Value="300" />
+                                <vm:WholeStatisticViewModel Name="Last" Value="100" IsVisible="True"/>
+                                <vm:WholeStatisticViewModel Name="Max" Value="200" IsVisible="True"/>
+                                <vm:WholeStatisticViewModel Name="Total" Value="300" IsVisible="True"/>
                             </vm:StatisticsViewModel.Items>
                         </vm:StatisticsViewModel>
                     </vm:StatisticGroupViewModel.Statistics>
@@ -53,6 +56,7 @@
                                                  X="-1566.7635447"
                                                  Y="0.108575277757"
                                                  Z="1997.649169219"
+                                                 IsVisible="True"
                                                  />
             </vm:StatisticsViewModel.Items>
         </vm:StatisticsViewModel>        

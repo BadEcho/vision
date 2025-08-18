@@ -25,8 +25,8 @@
             <vm:StatisticGroupViewModel.Statistics>
                 <vm:StatisticsViewModel>
                     <vm:StatisticsViewModel.Items>
-                        <vm:WholeStatisticViewModel Name="Last" Value="3031"/>
-                        <vm:WholeStatisticViewModel Name="Max" Value="293939339"/>
+                        <vm:WholeStatisticViewModel Name="Last" Value="3031" IsVisible="True"/>
+                        <vm:WholeStatisticViewModel Name="Max" Value="293939339" IsVisible="True"/>
                     </vm:StatisticsViewModel.Items>
                 </vm:StatisticsViewModel>
             </vm:StatisticGroupViewModel.Statistics>

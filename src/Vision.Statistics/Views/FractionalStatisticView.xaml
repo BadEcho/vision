@@ -26,6 +26,7 @@
                                          PrimaryBarColor="#FF43BC50"
                                          SecondaryBarColor="#FF27D88D"
                                          Format="{}{0:N0}"
+                                         IsVisible="True"
                                          />
     </d:DesignProperties.DataContext>
     <badEcho:View.Resources>
