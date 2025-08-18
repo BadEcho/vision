@@ -58,7 +58,7 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
     public ApocalypseViewModel(ApocalypseModuleConfiguration configuration, Mediator mediator)
         : base(new CollectionViewModelOptions
                {
-                   AsyncBatchBindings = true,
+                   OffloadBatchBindings = true,
                    Capacity = configuration.MaxMessages,
                    CapacityEnforcementDelayLimit = configuration.MaxMessages * 2
                },

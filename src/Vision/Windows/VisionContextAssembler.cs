@@ -24,14 +24,14 @@ namespace BadEcho.Vision.Windows;
 /// Provides an assembler of a Vision main window's data context.
 /// </summary>
 internal sealed class VisionContextAssembler : IContextAssembler<VisionViewModel>
-{
+{                   
     private readonly VisionViewModel _viewModel = new();
     
     private Dispatcher? _dispatcher;
     private bool _isAssembled;
         
     /// <inheritdoc/>
-    public VisionViewModel Assemble(Dispatcher dispatcher)
+    public async Task<VisionViewModel> Assemble(Dispatcher dispatcher)
     {
         if (_isAssembled)
             return _viewModel;
@@ -41,16 +41,17 @@ internal sealed class VisionContextAssembler : IContextAssembler<VisionViewModel
         IConfigurationProvider configurationProvider
             = PluginHost.LoadFromProcess<IConfigurationProvider>();
 
-        configurationProvider.ConfigurationChanged += HandleConfigurationChanged;
+        configurationProvider.ConfigurationChanged 
+            += async (s, _) => await HandleConfigurationChanged(s);
 
-        ApplyConfiguration(configurationProvider);
+        await ApplyConfiguration(configurationProvider);
 
         _isAssembled = true;
 
         return _viewModel;
     }
 
-    private void ApplyConfiguration(IConfigurationProvider configurationProvider)
+    private async Task ApplyConfiguration(IConfigurationProvider configurationProvider)
     {
         VisionConfiguration configuration
             = configurationProvider.GetConfiguration<VisionConfiguration>();
@@ -69,17 +70,17 @@ internal sealed class VisionContextAssembler : IContextAssembler<VisionViewModel
 
         foreach (var module in modules)
         {
-            var moduleHost = new ModuleHost(module, configuration);
+            var moduleHost = await ModuleHost.Create(module, configuration);
                 
             _viewModel.Bind(moduleHost);
         }
     }
 
-    private void HandleConfigurationChanged(object? sender, EventArgs e)
+    private async Task HandleConfigurationChanged(object? sender)
     {
         if (sender is not IConfigurationProvider configurationProvider)
             return;
 
-        ApplyConfiguration(configurationProvider);
+        await ApplyConfiguration(configurationProvider);
     }
 }

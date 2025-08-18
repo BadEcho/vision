@@ -88,14 +88,14 @@ public abstract class VisionModule<TModel, TViewModel> : IVisionModule
     { get; }
 
     /// <inheritdoc/>
-    public IViewModel EnableModule(IMessageFileProvider messageProvider)
+    public async Task<IViewModel> EnableModule(IMessageFileProvider messageProvider)
     {
         Require.NotNull(messageProvider, nameof(messageProvider));
 
         if (!string.IsNullOrEmpty(messageProvider.CurrentMessages))
-            ViewModel.Bind(ReadMessages(messageProvider.CurrentMessages));
+            await ViewModel.BindAsync(ReadMessages(messageProvider.CurrentMessages)).ConfigureAwait(false);
 
-        messageProvider.NewMessages += HandleNewMessages;
+        messageProvider.NewMessages += async (_, e) => await HandleNewMessages(e).ConfigureAwait(false);
 
         return ViewModel;
     }
@@ -130,10 +130,10 @@ public abstract class VisionModule<TModel, TViewModel> : IVisionModule
         }
     }
 
-    private void HandleNewMessages(object? sender, EventArgs<string> e)
+    private async Task HandleNewMessages(EventArgs<string> e)
     {
         var models = ReadMessages(e.Data);
 
-        ViewModel.Bind(models);
+        await ViewModel.BindAsync(models).ConfigureAwait(false);
     }
 }

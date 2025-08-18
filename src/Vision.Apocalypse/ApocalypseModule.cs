@@ -102,6 +102,9 @@ internal sealed class ApocalypseModule : VisionModule<ApocalypseEvent, Apocalyps
     [Export(typeof(IConventionProvider))]
     private sealed class LocalDependency : DependencyRegistry<IVisionConfiguration>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocalDependency"/> class with its unique contract name.
+        /// </summary>
         public LocalDependency()
             : base(DEPENDENCY_NAME)
         { }

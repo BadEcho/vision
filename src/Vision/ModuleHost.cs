@@ -30,27 +30,23 @@ internal sealed class ModuleHost : IDisposable
     /// Initializes a new instance of the <see cref="ModuleHost"/> class.
     /// </summary>
     /// <param name="module">The Vision module to be hosted.</param>
-    /// <param name="configuration">Configuration settings for the Vision application.</param>
-    public ModuleHost(IVisionModule module, IVisionConfiguration configuration)
+    /// <param name="messageFileWatcher">A file watcher that will feed the module with new messages being posted.</param>
+    /// <param name="moduleViewModel">The view model to use to display the module.</param>
+    private ModuleHost(IVisionModule module, MessageFileWatcher messageFileWatcher, IViewModel moduleViewModel)
+        : this(module.Location, moduleViewModel)
     {
-        Require.NotNull(module, nameof(module));
-        Require.NotNull(configuration, nameof(configuration));
-
-        _messageFileWatcher = new MessageFileWatcher(module, configuration.MessageFilesDirectory);
-
-        Location = module.Location;
-        ModuleViewModel = module.EnableModule(_messageFileWatcher);
+        _messageFileWatcher = messageFileWatcher;
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ModuleHost"/> class.
     /// </summary>
-    /// <param name="moduleViewModel">The view model to use to display the module.</param>
     /// <param name="location">An enumeration value specifying anchor point to attach the module to.</param>
-    private ModuleHost(IViewModel moduleViewModel, AnchorPointLocation location)
+    /// <param name="moduleViewModel">The view model to use to display the module.</param>
+    private ModuleHost(AnchorPointLocation location, IViewModel moduleViewModel)
     {
-        ModuleViewModel = moduleViewModel;
         Location = location;
+        ModuleViewModel = moduleViewModel;
     }
 
     /// <summary>
@@ -66,6 +62,23 @@ internal sealed class ModuleHost : IDisposable
     { get; }
 
     /// <summary>
+    /// Creates a host container for the provided module.
+    /// </summary>
+    /// <param name="module">The Vision module to be hosted.</param>
+    /// <param name="configuration">Configuration settings for the Vision application.</param>
+    /// <returns>A <see cref="ModuleHost"/> instance for displaying <c>module</c>.</returns>
+    public static async Task<ModuleHost> Create(IVisionModule module, IVisionConfiguration configuration)
+    {
+        Require.NotNull(module, nameof(module));
+        Require.NotNull(configuration, nameof(configuration));
+
+        var messageFileWatcher = new MessageFileWatcher(module, configuration.MessageFilesDirectory);
+        IViewModel moduleViewModel = await module.EnableModule(messageFileWatcher);
+
+        return new ModuleHost(module, messageFileWatcher, moduleViewModel);
+    }
+
+    /// <summary>
     /// Creates a host container for the module responsible for displaying the Vision application's title.
     /// </summary>
     /// <param name="configuration">Configuration settings for the Vision application.</param>
@@ -76,7 +89,7 @@ internal sealed class ModuleHost : IDisposable
 
         var titleViewModel = new VisionTitleViewModel();
 
-        return new ModuleHost(titleViewModel, configuration.TitleLocation);
+        return new ModuleHost(configuration.TitleLocation, titleViewModel);
     }
 
     /// <inheritdoc/>

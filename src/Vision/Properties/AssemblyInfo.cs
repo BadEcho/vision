@@ -29,3 +29,8 @@ using BadEcho.Properties;
                            Scope = "type",
                            Target = "~T:BadEcho.Vision.Views.VisionTitleView",
                            Justification = "WPF window classes are generated as public.")]
+
+[assembly: SuppressMessage("Reliability",
+                           "CA2007:Do not directly await a Task",
+                           Scope = "module",
+                           Justification = "This rule is intended for libraries. The default awaiter behavior is perfectly fine for application code.")]

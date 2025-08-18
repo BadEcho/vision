@@ -35,7 +35,7 @@ internal sealed class StatisticsViewModel : PolymorphicCollectionViewModel<IStat
     /// </summary>
     /// <param name="mediator">A mediator for messages to be sent or received through.</param>
     public StatisticsViewModel(Mediator mediator)
-        : base(new CollectionViewModelOptions {AsyncBatchBindings = false, RemoveItemsMissingFromBatch = true})
+        : base(new CollectionViewModelOptions {OffloadBatchBindings = false, RemoveItemsMissingFromBatch = true})
     {
         RegisterDerivation<WholeStatistic, WholeStatisticViewModel>();
         RegisterDerivation<FractionalStatistic, FractionalStatisticViewModel>();

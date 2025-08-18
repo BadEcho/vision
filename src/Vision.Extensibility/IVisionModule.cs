@@ -48,6 +48,9 @@ public interface IVisionModule
     /// <param name="messageProvider">
     /// A live message provider that will feed the module with new messages being posted.
     /// </param>
-    /// <returns>A view model that allows for the displaying of the Vision module.</returns>
-    IViewModel EnableModule(IMessageFileProvider messageProvider);
+    /// <returns>
+    /// The task object representing the asynchronous operation and containing a view model that allows for the displaying of
+    /// the Vision module.
+    /// </returns>
+    Task<IViewModel> EnableModule(IMessageFileProvider messageProvider);
 }

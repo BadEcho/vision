@@ -70,8 +70,8 @@ public class MessageFileWatcherTests : IDisposable
         public bool ProcessNewMessagesOnly
             => false;
             
-        public IViewModel EnableModule(IMessageFileProvider messageProvider) 
-            => new FakeViewModel();
+        public Task<IViewModel> EnableModule(IMessageFileProvider messageProvider) 
+            => Task.FromResult<IViewModel>(new FakeViewModel());
     }
 
     private sealed class FakeViewModel : ViewModel
