@@ -21,13 +21,15 @@
       mc:Ignorable="d"
       VerticalAlignment="Stretch">
     <Grid>
-        <ItemsControl ItemsSource="{Binding Items}"
+        <!--
+            Because this is loose XAML, the ItemsPanelTemplate for this control needs to be defined in a Style that 
+            itself is referenced by compiled XAML; otherwise, the custom panel control used (AnchorPointPanel) won't 
+            be able to be created at runtime. This is because the lookup table used by XAML to construct types is 
+            generated at compile time and will only contain types being referenced by the code being compiled.
+        -->
+        <ItemsControl Style="{StaticResource AnchoredItemsStyle}"
+                      ItemsSource="{Binding Items}"
                       Margin="15,0,15,0">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <c:AnchorPointPanel/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
             <ItemsControl.ItemContainerStyle>
                 <Style>
                     <Setter Property="c:AnchorPointPanel.Location" Value="{Binding Location}"/>
