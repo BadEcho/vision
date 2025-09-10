@@ -47,13 +47,15 @@
                                                                     IsInteger=True}"
                                      Grid.Column="1"
                                      Grid.Row="1">
-            <badEcho:TargetUpdatedEventBehavior.Actions>
-                <badEcho:ConditionAction IsEnabled="{Binding IsCritical}"/>
-                <badEcho:BeginStoryboardAction IsMutuallyExclusive="True"
-                                               Storyboard="{StaticResource ExplodeTextAnimation}" 
-                                               Mediator="{Binding Mediator}"
-                                               />
-            </badEcho:TargetUpdatedEventBehavior.Actions>
+            <badEcho:Behaviors.EventTriggers>
+                <badEcho:EventTrigger EventName="TargetUpdated">
+                    <badEcho:ConditionAction IsEnabled="{Binding IsCritical}"/>
+                    <badEcho:BeginStoryboardAction IsMutuallyExclusive="True"
+                                                   Storyboard="{StaticResource ExplodeTextAnimation}" 
+                                                   Mediator="{Binding Mediator}"
+                    />
+                </badEcho:EventTrigger>
+            </badEcho:Behaviors.EventTriggers>
         </badEcho:OutlinedTextElement>
     </Grid>
 </badEcho:View>

@@ -25,11 +25,13 @@
                                        />
     </d:DesignProperties.DataContext>
     <Grid>
-        <badEcho:LoadedEventBehavior.Actions>
-            <badEcho:PlaySoundAction Sound="{Binding EffectSound}"
-                                     IsUninterruptible="{Binding IsEffectSoundUninterruptible}"
-                                     />
-        </badEcho:LoadedEventBehavior.Actions>
+        <badEcho:Behaviors.EventTriggers>
+            <badEcho:EventTrigger EventName="Loaded">
+                <badEcho:PlaySoundAction Sound="{Binding EffectSound}"
+                                         IsUninterruptible="{Binding IsEffectSoundUninterruptible}"
+                                         />
+            </badEcho:EventTrigger>
+        </badEcho:Behaviors.EventTriggers>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" SharedSizeGroup="TimestampColumn"/>
             <ColumnDefinition Width="*"/>
