@@ -766,7 +766,7 @@ dotnet_diagnostic.IDE0130.severity = none
 # IDE0290: They need to flesh out primary constructors more before I switch over to it. 
 # For example: readonly fields; this new feature is unconscionable to use without at least this.
 dotnet_diagnostic.IDE0290.severity = none
-csharp_style_prefer_primary_constructors = false:suggestion
+csharp_style_prefer_primary_constructors = false
 
 # IDE0028,0300,0301,0305: Resharper needs to be updated to support the new syntax before these are implemented.
 dotnet_diagnostic.IDE0028.severity = none
