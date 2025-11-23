@@ -42,11 +42,11 @@ public class MessageFileWatcherTests : IDisposable
     }
 
     [Fact]
-    public void Write_ChangeProcessed()
+    public async Task Write_ChangeProcessed()
     {
-        Assert.RaisesAsync<EventArgs<string>>(e => _watcher.NewMessages += e,
-                                              e => _watcher.NewMessages -= e,
-                                              () => Task.Run(Change));
+        await Assert.RaisesAsync<EventArgs<string>>(e => _watcher.NewMessages += e,
+                                                    e => _watcher.NewMessages -= e,
+                                                    () => Task.Run(Change));
         void Change()
         {
             using (var writer = File.AppendText(_module.MessageFile))

@@ -99,13 +99,13 @@
                                     <GradientStop Color="#FFD2D2D2" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
-                            <badEcho:Behaviors.EventTriggers>
+                            <badEcho:FrameworkBehaviors.EventTriggers>
                                 <badEcho:EventTrigger EventName="Loaded">
                                     <badEcho:BeginStoryboardAction Storyboard="{StaticResource RevealBounce}" 
                                                                    Mediator="{Binding DataContext.Mediator, RelativeSource={RelativeSource AncestorType={x:Type badEcho:View}}}"
                                                                    />
                                 </badEcho:EventTrigger>
-                            </badEcho:Behaviors.EventTriggers>
+                            </badEcho:FrameworkBehaviors.EventTriggers>
                             <badEcho:CancelableAnimationBehavior.State>
                                 <badEcho:CancelableAnimationState Storyboard="{StaticResource RevealBounce}"
                                                                   Mediator="{Binding    DataContext.Mediator, 
@@ -143,13 +143,13 @@
                                         <GradientStop Color="#00FFFFFF" Offset="0.2"/>
                                     </LinearGradientBrush>
                                 </Border.Background>
-                                <badEcho:Behaviors.EventTriggers>
+                                <badEcho:FrameworkBehaviors.EventTriggers>
                                     <badEcho:EventTrigger EventName="Loaded">
                                         <badEcho:BeginStoryboardAction Storyboard="{StaticResource RevealShimmer}" 
                                                                        Mediator="{Binding DataContext.Mediator, RelativeSource={RelativeSource AncestorType={x:Type badEcho:View}}}" 
                                                                        />
                                     </badEcho:EventTrigger>
-                                </badEcho:Behaviors.EventTriggers>
+                                </badEcho:FrameworkBehaviors.EventTriggers>
                                 <badEcho:CancelableAnimationBehavior.State>
                                     <badEcho:CancelableAnimationState Storyboard="{StaticResource RevealShimmer}"
                                                                       Mediator="{Binding    DataContext.Mediator, 

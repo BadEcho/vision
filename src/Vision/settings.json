@@ -2,7 +2,7 @@
   "launchDisplay": 1,
   "scaleX": 1.33,
   "scaleY": 1.33,
-  "forceSoftwareRendering": true,
+  "forceSoftwareRendering": false,
   "leftAnchorMargin": "0,225,0,0",
   "titleLocation": "TopLeft",
   "messageFilesDirectory": "D:\\BadEcho\\omnified-hacks\\targets\\starfield",

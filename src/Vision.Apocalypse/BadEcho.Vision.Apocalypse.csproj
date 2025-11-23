@@ -4,7 +4,7 @@
 		<Title>Vision Apocalypse Module</Title>
 		<AssemblyTitle>$(Title)</AssemblyTitle>
 		<Product>Vision</Product>
-		<TargetFramework>net9.0-windows</TargetFramework>
+		<TargetFramework>net10.0-windows</TargetFramework>
 		<UseWPF>true</UseWPF>
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>

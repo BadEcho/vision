@@ -47,7 +47,7 @@
                                                                     IsInteger=True}"
                                      Grid.Column="1"
                                      Grid.Row="1">
-            <badEcho:Behaviors.EventTriggers>
+            <badEcho:FrameworkBehaviors.EventTriggers>
                 <badEcho:EventTrigger EventName="TargetUpdated">
                     <badEcho:ConditionAction IsEnabled="{Binding IsCritical}"/>
                     <badEcho:BeginStoryboardAction IsMutuallyExclusive="True"
@@ -55,7 +55,7 @@
                                                    Mediator="{Binding Mediator}"
                     />
                 </badEcho:EventTrigger>
-            </badEcho:Behaviors.EventTriggers>
+            </badEcho:FrameworkBehaviors.EventTriggers>
         </badEcho:OutlinedTextElement>
     </Grid>
 </badEcho:View>

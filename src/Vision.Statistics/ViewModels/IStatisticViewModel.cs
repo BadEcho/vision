@@ -23,7 +23,7 @@ namespace BadEcho.Vision.Statistics.ViewModels;
 internal interface IStatisticViewModel : IViewModel, IModelProvider<IStatistic>
 {
     /// <summary>
-    /// Gets or sets the displayed name for the bound statistic.
+    /// Gets or sets the displayed name of the bound statistic.
     /// </summary>
     string Name { get; set; }
 
