@@ -11,10 +11,10 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.Collections.Specialized;
 using System.Timers;
 using BadEcho.Presentation.Messaging;
 using BadEcho.Presentation.ViewModels;
-using BadEcho.Collections;
 using BadEcho.Vision.Extensibility;
 
 namespace BadEcho.Vision.Apocalypse.ViewModels;
@@ -133,11 +133,11 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
     }
 
     /// <inheritdoc/>
-    protected override void OnItemsChanged(CollectionPropertyChangedEventArgs e)
+    protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
     {
-        base.OnItemsChanged(e);
+        base.OnCollectionChanged(e);
 
-        if (e.Action is CollectionPropertyChangedAction.Add)
+        if (e.Action is NotifyCollectionChangedAction.Add)
         {
             ShowEvents();
             Mediator.Broadcast(SystemMessages.CancelAnimationsRequested);
