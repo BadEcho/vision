@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/shared/">
+    <Project Path="src/Core/src/Common/BadEcho.Common.csproj" />
+    <Project Path="src/Extensibility/src/Extensibility/BadEcho.Extensibility.csproj" />
+    <Project Path="src/Presentation/src/Presentation/BadEcho.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Vision.Apocalypse/BadEcho.Vision.Apocalypse.csproj" />
+    <Project Path="src/Vision.Extensibility/BadEcho.Vision.Extensibility.csproj" />
+    <Project Path="src/Vision.Statistics/BadEcho.Vision.Statistics.csproj" />
+    <Project Path="src/Vision/BadEcho.Vision.csproj">
+      <BuildDependency Project="src/Vision.Apocalypse/BadEcho.Vision.Apocalypse.csproj" />
+      <BuildDependency Project="src/Vision.Statistics/BadEcho.Vision.Statistics.csproj" />
+    </Project>
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Vision.Tests/BadEcho.Vision.Tests.csproj" />
+  </Folder>
+</Solution>

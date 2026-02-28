@@ -140,7 +140,7 @@ internal sealed class ApocalypseViewModel : PolymorphicCollectionViewModel<Apoca
         if (e.Action is NotifyCollectionChangedAction.Add)
         {
             ShowEvents();
-            Mediator.Broadcast(SystemMessages.CancelAnimationsRequested);
+            Mediator.Broadcast(SystemMessages.CancelAnimations);
         }
     }
 
